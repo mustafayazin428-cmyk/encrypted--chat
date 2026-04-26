@@ -1,0 +1,6 @@
+flask
+flask-socketio
+pycryptodome
+gunicorn
+gevent
+gevent-websocket
