@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دردشة مشفرة - RSA + AES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-screen" id="loginScreen">
+            <div class="login-box">
+                <h1>🔐 الدردشة المشفرة</h1>
+                <p><strong>RSA 2048-bit + AES 256-bit</strong></p>
+                <input type="text" id="username" placeholder="اسم المستخدم">
+                <button onclick="register()">دخول / تسجيل</button>
+            </div>
+        </div>
+
+        <div class="chat-screen" id="chatScreen" style="display:none;">
+            <div class="chat-header">
+                <h2>💬 الدردشة المشفرة</h2>
+                <div class="encryption-badge">🛡️ RSA + AES</div>
+            </div>
+            
+            <div class="online-users">
+                <h3>المستخدمون</h3>
+                <select id="userSelect">
+                    <option value="">اختر مستخدم...</option>
+                </select>
+            </div>
+
+            <div class="chat-area">
+                <div class="messages" id="messages"></div>
+                <div class="message-input">
+                    <textarea id="messageInput" placeholder="اكتب رسالتك..."></textarea>
+                    <button onclick="sendMessage()">📤 إرسال مشفر</button>
+                </div>
+            </div>
+            
+            <div class="encryption-details">
+                <details>
+                    <summary>📖 تفاصيل التشفير</summary>
+                    <p><strong>المفتاح العام:</strong> <span id="publicKeyDisplay">...</span></p>
+                    <p>يتم تشفير كل رسالة بـ AES-256، والمفتاح يُشفر بـ RSA-2048</p>
+                </details>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
